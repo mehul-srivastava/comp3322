@@ -1,0 +1,231 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  position: relative;
+}
+
+body {
+  opacity: 0;
+  animation: lazyLoad 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes lazyLoad {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1600px;
+  padding-block: 10px;
+  padding-inline: 80px;
+  margin-block: 20px;
+  position: fixed;
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  z-index: 100;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;
+  width: 100%;
+}
+
+nav ul li {
+  margin: 10px;
+  padding-block: 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: black;
+  position: relative;
+  font-weight: 500;
+}
+
+nav ul li a::after {
+  content: "";
+  height: 2px;
+  width: 0;
+  background-color: #000;
+  opacity: 0.5;
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  border-radius: 10px;
+  transform: translateX(-50%);
+  transition: 0.2s width ease-in;
+}
+
+nav ul li a:hover::after {
+  width: 50%;
+}
+
+/* main {
+  background-color: #2cffa0;
+  padding-top: 5px;
+} */
+
+/*================================== HERO SECTION =========================================*/
+.hero {
+  background-color: #2cffa0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-block: 150px 250px;
+  position: relative;
+  /* z-index: -2; */
+}
+
+/* .hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: -100px;
+  left: 0;
+  left: 0;
+  right: 0;
+  height: 400px;
+  background-color: #fff;
+  z-index: -1;
+} */
+
+/* .hero::before {
+  clip-path: polygon(0 40%, 0 90%, 100% 90%);
+}
+
+.hero::after {
+  clip-path: polygon(100% 40%, 0 90%, 100% 90%);
+} */
+
+.hero .hero__title,
+.hero .hero__subtitle {
+  color: #fff;
+  font-size: 10em;
+  font-weight: 700;
+  text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9,
+    0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1), 0 0 5px rgba(0, 0, 0, 0.1),
+    0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2),
+    0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2),
+    0 20px 20px rgba(0, 0, 0, 0.15);
+}
+
+.hero .hero__subtitle {
+  font-size: 2em;
+  margin-block: -45px 50px;
+}
+
+.hero .hero__minititle {
+  color: #00a23b;
+  font-size: 4em;
+  text-align: center;
+}
+
+.hero .hero__card {
+  position: absolute;
+  background: #fff;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+    rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  border: 2px dashed #46b85b;
+  border-radius: 5px;
+  height: 300px;
+  width: 850px;
+  bottom: -50%;
+  transform: translateY(-85%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+.hero .hero__card::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  border-right: inherit;
+}
+
+.hero .hero__card::after {
+  content: "&";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-45%, -50%);
+  background: #fff;
+  padding: 10px;
+  font-size: 40px;
+  color: #164920;
+  font-weight: 500;
+}
+
+.hero .hero__card .banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  padding: 30px 3%;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+.hero .hero__card .banner img {
+  display: block;
+  width: 200px;
+  height: auto;
+}
+
+.hero .hero__card .banner:last-child img {
+  width: 150px;
+}
+
+.hero .hero__card .banner h3 {
+  color: #164920;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.hero .hero__card .banner h6 {
+  font-size: 23px;
+  font-weight: 300;
+}
+
+/*================================== OBJECTIVES SECTION =========================================*/
+#overview {
+  margin-top: 180px;
+  background: #000;
+  height: 800px;
+}
