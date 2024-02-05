@@ -37,12 +37,13 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 90%;
   max-width: 1600px;
+  min-width: 950px;
   padding-block: 10px;
-  padding-inline: 80px;
+  padding-inline: 20px;
   margin-block: 20px;
   position: fixed;
-  width: 100%;
   left: 50%;
   transform: translateX(-50%);
   background-color: rgba(0, 0, 0, 0.2);
@@ -70,6 +71,7 @@ nav ul li a {
   color: black;
   position: relative;
   font-weight: 500;
+  font-size: 14px;
 }
 
 nav ul li a::after {
@@ -90,11 +92,6 @@ nav ul li a:hover::after {
   width: 50%;
 }
 
-/* main {
-  background-color: #2cffa0;
-  padding-top: 5px;
-} */
-
 /*================================== HERO SECTION =========================================*/
 .hero {
   background-color: #2cffa0;
@@ -104,29 +101,24 @@ nav ul li a:hover::after {
   flex-direction: column;
   padding-block: 150px 250px;
   position: relative;
-  /* z-index: -2; */
+  background-image: url(./images/4.jpg);
+  background-size: 100%;
+  background-position: center;
+  background-blend-mode: darken;
+  z-index: 5;
 }
 
-/* .hero::before,
 .hero::after {
   content: "";
+  height: 100%;
+  width: 100%;
   position: absolute;
-  bottom: -100px;
   left: 0;
-  left: 0;
-  right: 0;
-  height: 400px;
-  background-color: #fff;
-  z-index: -1;
-} */
-
-/* .hero::before {
-  clip-path: polygon(0 40%, 0 90%, 100% 90%);
+  top: 0;
+  z-index: 2;
+  background: #2cffa0;
+  opacity: 0.8;
 }
-
-.hero::after {
-  clip-path: polygon(100% 40%, 0 90%, 100% 90%);
-} */
 
 .hero .hero__title,
 .hero .hero__subtitle {
@@ -138,17 +130,21 @@ nav ul li a:hover::after {
     0 1px 3px rgba(0, 0, 0, 0.3), 0 3px 5px rgba(0, 0, 0, 0.2),
     0 5px 10px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.2),
     0 20px 20px rgba(0, 0, 0, 0.15);
+  z-index: inherit;
 }
 
 .hero .hero__subtitle {
   font-size: 2em;
   margin-block: -45px 50px;
+  z-index: inherit;
 }
 
 .hero .hero__minititle {
   color: #00a23b;
-  font-size: 4em;
+  font-size: 42px;
   text-align: center;
+  margin-inline: 30px;
+  z-index: inherit;
 }
 
 .hero .hero__card {
@@ -161,7 +157,7 @@ nav ul li a:hover::after {
   height: 300px;
   width: 850px;
   bottom: -50%;
-  transform: translateY(-85%);
+  transform: translateY(-75%);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -223,9 +219,82 @@ nav ul li a:hover::after {
   font-weight: 300;
 }
 
-/*================================== OBJECTIVES SECTION =========================================*/
+/*================================== OVERVIEW SECTION =========================================*/
 #overview {
-  margin-top: 180px;
-  background: #000;
-  height: 800px;
+  margin-top: 245px;
+  margin-inline: 5%;
+}
+
+/* #overview div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  margin-top: 25px;
+} */
+
+#overview div {
+  /* float: left; */
+  margin-top: 25px;
+}
+
+#overview h2 {
+  font-size: 58px;
+  position: relative;
+  width: fit-content;
+  z-index: 2;
+}
+
+#overview h2::after {
+  content: "";
+  position: absolute;
+  top: 65%;
+  left: 0;
+  right: 0;
+  display: block;
+  height: 1rem;
+  width: 100%;
+  border-radius: 0.75rem;
+  background-color: rgba(44, 255, 160, 0.79);
+  z-index: -1;
+}
+
+#overview div > img {
+  border: 2px dotted #000;
+  border-radius: 10px;
+  width: 500px;
+  float: right;
+  margin: 5px;
+}
+
+#overview div > p {
+  font-size: 17px;
+}
+
+/*================================== OBJECTIVES SECTION =========================================*/
+#objectives {
+  margin-top: 100px;
+  margin-inline: 5%;
+}
+
+#objectives h2 {
+  font-size: 58px;
+  position: relative;
+  width: fit-content;
+  z-index: 2;
+}
+
+#objectives h2::after {
+  content: "";
+  position: absolute;
+  top: 65%;
+  left: 0;
+  right: 0;
+  display: block;
+  height: 1rem;
+  width: 100%;
+  border-radius: 0.75rem;
+  background-color: rgba(44, 255, 160, 0.79);
+  z-index: -1;
 }

@@ -1,5 +1,7 @@
 - OVERVIEW
 - OBJECTIVE
+  - [Three circles](https://www.uplabs.com/posts/travel-website-design-927a3c80-28ea-467f-9b37-0124b13408a6)
+  - make three cards as shown above and just put content inside in paragraph, but behind content should be subtle #1, #2, #3 like online tutorials video
 - BACKGRIUND
 - REQUIREMENTS
 - SUBMISSION
