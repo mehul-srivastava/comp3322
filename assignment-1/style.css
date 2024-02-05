@@ -234,11 +234,6 @@ nav ul li a:hover::after {
   margin-top: 25px;
 } */
 
-#overview div {
-  /* float: left; */
-  margin-top: 25px;
-}
-
 #overview h2 {
   font-size: 58px;
   position: relative;
