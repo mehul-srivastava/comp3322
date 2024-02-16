@@ -23,7 +23,12 @@
       </div>
 
       <!-- Mobile Menu (did not structure inside nav__mobile due to JS restrictions) -->
-      <input type="checkbox" class="nav__mobile-btn" />
+      <input
+        type="checkbox"
+        class="nav__mobile-btn"
+        id="menuBtn"
+        name="menuBtn"
+      />
       <button class="nav__mobile-icon">
         <svg
           stroke="black"
@@ -40,7 +45,7 @@
           ></path>
         </svg>
       </button>
-      <div class="nav__mobile-menuoverlay"></div>
+      <div class="nav__mobile-menuoverlay" id="nav"></div>
       <ul class="nav__mobile-menu">
         <li><a href="#overview">Overview</a></li>
         <li><a href="#objectives">Objectives</a></li>

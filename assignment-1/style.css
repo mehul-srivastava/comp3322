@@ -110,7 +110,7 @@ html {
   height: 80%;
   width: 90%;
   transition: transform 1s;
-  z-index: 1002;
+  z-index: 1000;
 }
 
 .nav__mobile-menu {
@@ -171,12 +171,11 @@ html {
 
 /*======================== Hero Section ==========================*/
 .hero {
-  background-color: #e9f3d2;
-  background-image: linear-gradient(
-    146deg,
-    #e9f3d2 30%,
-    #deb1d8 49%,
-    #f1c4cd 69%
+  background-color: rgba(223, 159, 247, 0.8);
+  background: linear-gradient(
+    106.5deg,
+    rgba(223, 159, 247, 0.8) 23%,
+    rgba(255, 215, 185, 0.91) 93%
   );
   height: 100%;
   padding-top: 120px;
