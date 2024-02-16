@@ -23,12 +23,21 @@
       </div>
 
       <!-- Mobile Menu (did not structure inside nav__mobile due to JS restrictions) MAKE USE OF A TAGS, TOGGLE TWO OF THEM AND TAKE HELP FROM :TARGET -->
-      <input
-        type="checkbox"
-        class="nav__mobile-btn"
-        id="menuBtn"
-        name="menuBtn"
-      />
+      <div class="nav__mobile-menuoverlay" id="nav"></div>
+
+      <a href="#nav" class="nav__mobile-btn">@</a>
+      <a href="#blank" class="nav__mobile-btn--off">@</a>
+
+      <ul class="nav__mobile-menu">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#objectives">Objectives</a></li>
+        <li><a href="#background">Background</a></li>
+        <li><a href="#requirements">Requirements</a></li>
+        <li><a href="#submission">Submission</a></li>
+        <li><a href="#grading-policy">Grading Policy</a></li>
+        <li><a href="#readings">Readings</a></li>
+        <li><a href="#plagiarism">Plagiarism</a></li>
+      </ul>
 
       <button class="nav__mobile-icon">
         <svg
@@ -46,17 +55,6 @@
           ></path>
         </svg>
       </button>
-      <div class="nav__mobile-menuoverlay" id="nav"></div>
-      <ul class="nav__mobile-menu">
-        <li><a href="#overview">Overview</a></li>
-        <li><a href="#objectives">Objectives</a></li>
-        <li><a href="#background">Background</a></li>
-        <li><a href="#requirements">Requirements</a></li>
-        <li><a href="#submission">Submission</a></li>
-        <li><a href="#grading-policy">Grading Policy</a></li>
-        <li><a href="#readings">Readings</a></li>
-        <li><a href="#plagiarism">Plagiarism</a></li>
-      </ul>
     </nav>
     <main>
       <section class="hero">
