@@ -8,7 +8,8 @@
   </head>
   <body>
     <nav>
-      <div class="desktop">
+      <!-- Desktop Menu -->
+      <div class="nav__desktop">
         <ul>
           <li><a href="#overview">Overview</a></li>
           <li><a href="#objectives">Objectives</a></li>
@@ -20,7 +21,36 @@
           <li><a href="#plagiarism">Plagiarism</a></li>
         </ul>
       </div>
-      <div class="mobile"></div>
+
+      <!-- Mobile Menu (did not structure inside nav__mobile due to JS restrictions) -->
+      <input type="checkbox" class="nav__mobile-btn" />
+      <button class="nav__mobile-icon">
+        <svg
+          stroke="black"
+          fill="none"
+          class="nav__mobile-hamburger"
+          viewBox="-10 -10 120 120"
+        >
+          <path
+            class="line"
+            stroke-width="10"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m 20 40 h 60 a 1 1 0 0 1 0 20 h -60 a 1 1 0 0 1 0 -40 h 30 v 70"
+          ></path>
+        </svg>
+      </button>
+      <div class="nav__mobile-menuoverlay"></div>
+      <ul class="nav__mobile-menu">
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#objectives">Objectives</a></li>
+        <li><a href="#background">Background</a></li>
+        <li><a href="#requirements">Requirements</a></li>
+        <li><a href="#submission">Submission</a></li>
+        <li><a href="#grading-policy">Grading Policy</a></li>
+        <li><a href="#readings">Readings</a></li>
+        <li><a href="#plagiarism">Plagiarism</a></li>
+      </ul>
     </nav>
     <main>
       <section class="hero">

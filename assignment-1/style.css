@@ -14,7 +14,7 @@ html {
 }
 
 /*======================== Navbar ==========================*/
-nav .desktop {
+.nav__desktop {
   position: fixed;
   background: #fff;
   padding: 23px;
@@ -29,24 +29,24 @@ nav .desktop {
   z-index: 100;
 }
 
-nav .desktop ul {
+.nav__desktop ul {
   display: flex;
   justify-content: space-around;
   list-style: none;
 }
 
-nav .desktop ul li {
+.nav__desktop ul li {
   padding-inline: 15px;
   font-size: 13px;
 }
 
-nav .desktop ul li > a {
+.nav__desktop ul li > a {
   text-decoration: none;
   color: #000;
   position: relative;
 }
 
-nav .desktop ul li a::after {
+.nav__desktop ul li a::after {
   content: "";
   height: 2px;
   width: 0;
@@ -59,12 +59,114 @@ nav .desktop ul li a::after {
   transition: 0.2s width ease-in;
 }
 
-nav .desktop ul li a:hover::after {
+.nav__desktop ul li a:hover::after {
   width: 50%;
 }
 
-nav .mobile {
+.nav__mobile-btn {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 1002;
+  width: 35px;
+  aspect-ratio: 1/1;
+  opacity: 0;
+}
+
+.nav__mobile-icon {
+  all: initial;
   display: none;
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background: #fff;
+  border-radius: 50%;
+  transition: background-color 0.9s;
+  z-index: 1001;
+}
+
+.nav__mobile-hamburger {
+  width: 35px;
+  overflow: hidden;
+  transition: transform 0.5s, rotate 0.5s;
+}
+
+.nav__mobile-hamburger > .line {
+  transition: 0.5s;
+  stroke-dasharray: 60 31 60 300;
+}
+
+.nav__mobile-menuoverlay {
+  display: block;
+  position: fixed;
+  top: 50%;
+  left: 0%;
+  transform: translate(-100%, -50%);
+  background: rgba(255, 255, 255, 0.21);
+  border-radius: 16px;
+  backdrop-filter: blur(9.4px);
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  height: 80%;
+  width: 90%;
+  transition: transform 1s;
+  z-index: 1002;
+}
+
+.nav__mobile-menu {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1000;
+  transform: translate(-50%, -50%);
+  list-style: none;
+  text-align: center;
+  z-index: 1002;
+}
+
+.nav__mobile-menu li {
+  margin-block: 20px;
+}
+
+.nav__mobile-menu li a {
+  text-decoration: none;
+  color: #000;
+}
+
+.nav__mobile-btn:checked {
+  height: 100vh;
+  width: 100vw;
+}
+
+.nav__mobile-btn:checked ~ .nav__mobile-icon .nav__mobile-hamburger {
+  rotate: 0.125turn;
+  transform: translate(0px, -3px);
+}
+
+.nav__mobile-btn:checked ~ .nav__mobile-icon .nav__mobile-hamburger > .line {
+  stroke-dasharray: 60 105 60 300;
+  stroke-dashoffset: -90;
+}
+
+.nav__mobile-btn:checked ~ .nav__mobile-menuoverlay {
+  transform: translate(5%, -50%);
+}
+
+.nav__mobile-btn:checked ~ .nav__mobile-menu {
+  animation: showMenu 0.5s forwards;
+  animation-delay: 1s;
+  animation-fill-mode: both;
+  display: block;
+}
+
+@keyframes showMenu {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /*======================== Hero Section ==========================*/
@@ -174,16 +276,17 @@ nav .mobile {
 
 /*======================== Mobile Viewport ==========================*/
 @media (350px <= width <= 500px) {
-  nav .desktop {
+  nav .nav__desktop {
     display: none;
   }
-  nav .mobile {
-    display: block;
+
+  nav .nav__mobile-icon {
+    display: flex;
   }
 
   .hero {
-    padding-top: 50px;
-    padding-bottom: 130px;
+    padding-top: 60px;
+    padding-bottom: 80px;
   }
 
   .hero .hero__title {
@@ -204,7 +307,8 @@ nav .mobile {
 
   .hero .hero__card {
     width: 80%;
-    height: 45%;
+    height: auto;
+    transform: translateY(-20%);
   }
 
   .hero .hero__card::after {
@@ -219,7 +323,7 @@ nav .mobile {
   }
 
   .hero .hero__card .banner img {
-    height: 55%;
+    display: none;
   }
 
   .hero .hero__card .banner h3 {
