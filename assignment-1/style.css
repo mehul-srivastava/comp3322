@@ -72,6 +72,7 @@ html {
   font-size: 25px;
   aspect-ratio: 1/1;
   opacity: 0;
+  z-index: 1002;
 }
 
 .nav__mobile-btn--off {
@@ -117,7 +118,7 @@ html {
   height: 80%;
   width: 90%;
   transition: transform 1s;
-  z-index: 1000;
+  z-index: 1003;
 }
 
 .nav__mobile-menu {
@@ -129,7 +130,7 @@ html {
   transform: translate(-50%, -50%);
   list-style: none;
   text-align: center;
-  z-index: 1002;
+  z-index: 1004;
 }
 
 .nav__mobile-menu li {
