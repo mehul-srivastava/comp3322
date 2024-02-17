@@ -20,6 +20,32 @@ section[id] {
   margin: 0 auto;
 }
 
+section h2 {
+  font-size: 49px;
+  text-transform: uppercase;
+  position: relative;
+  width: fit-content;
+  font-weight: 500;
+  padding-top: 100px;
+}
+
+section h2::after {
+  content: "";
+  position: absolute;
+  top: calc(79% + 8px);
+  left: 0;
+  display: block;
+  height: 1rem;
+  width: 100%;
+  border-radius: 0.75rem;
+  background: linear-gradient(
+    73.5deg,
+    rgba(223, 159, 247, 0.8) 23%,
+    rgba(255, 215, 185, 0.91) 93%
+  );
+  z-index: -1;
+}
+
 /*======================== Navbar ==========================*/
 .nav__desktop {
   position: fixed;
@@ -258,32 +284,7 @@ section[id] {
 
 /*======================== Overview Section ==========================*/
 #overview {
-  margin-top: 250px;
-}
-
-#overview h2 {
-  font-size: 49px;
-  text-transform: uppercase;
-  position: relative;
-  width: fit-content;
-  font-weight: 500;
-}
-
-#overview h2::after {
-  content: "";
-  position: absolute;
-  top: calc(50% + 8px);
-  left: 0;
-  display: block;
-  height: 1rem;
-  width: 100%;
-  border-radius: 0.75rem;
-  background: linear-gradient(
-    73.5deg,
-    rgba(223, 159, 247, 0.8) 23%,
-    rgba(255, 215, 185, 0.91) 93%
-  );
-  z-index: -1;
+  margin-top: 150px;
 }
 
 .overview__image {
@@ -337,32 +338,6 @@ section[id] {
 }
 
 /*======================== Objectives Section ==========================*/
-#objectives h2 {
-  font-size: 49px;
-  text-transform: uppercase;
-  position: relative;
-  width: fit-content;
-  font-weight: 500;
-  margin-top: 100px;
-}
-
-#objectives h2::after {
-  content: "";
-  position: absolute;
-  top: calc(50% + 8px);
-  left: 0;
-  display: block;
-  height: 1rem;
-  width: 100%;
-  border-radius: 0.75rem;
-  background: linear-gradient(
-    73.5deg,
-    rgba(223, 159, 247, 0.8) 23%,
-    rgba(255, 215, 185, 0.91) 93%
-  );
-  z-index: -1;
-}
-
 .objectives__cards {
   display: flex;
   justify-content: space-around;
@@ -391,4 +366,79 @@ section[id] {
 
 .objectives__cards--card:nth-child(2) {
   background-color: #ffd7b94d;
+}
+
+/*======================== Plagiarism Section ==========================*/
+#plagiarism {
+  padding-top: 200px;
+}
+
+.plagiarism_readings__banner {
+  width: 100%;
+  height: 300px;
+  border-radius: 15px;
+  background-color: #cac8fa;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px;
+  gap: 60px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.plagiarism_readings__banner > img {
+  height: 550px;
+  flex-shrink: 0;
+}
+
+.plagiarism_readings__banner div {
+  flex: 1;
+}
+
+.plagiarism_readings__banner div h4 {
+  font-size: 47px;
+}
+
+.plagiarism_readings__banner div p {
+  font-size: calc(0.5vw + 9px);
+}
+
+.plagiarism_readings__banner div img {
+  all: initial;
+  position: absolute;
+  top: 20px;
+  right: 50px;
+}
+
+.plagiarism_readings__banner div ul {
+  margin-left: 40px;
+}
+
+.plagiarism_readings__banner div li {
+  font-size: calc(0.5vw + 10px);
+}
+
+.plagiarism_readings__banner .readings-tab {
+  display: none;
+}
+
+.readings-tab div {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.readings-tab--card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+#readings:target ~ #plagiarism .plagiarism_readings__banner .readings-tab {
+  display: block;
+}
+
+#readings:target ~ #plagiarism .plagiarism_readings__banner .plagiarism-tab {
+  display: none;
 }

@@ -7,6 +7,18 @@
     padding: 25px;
   }
 
+  section h2 {
+    font-size: 30px;
+    font-weight: 400;
+    margin-top: 0;
+  }
+
+  section h2::after,
+  section h2::after {
+    height: 0.65rem;
+    top: calc(50% + 6px);
+  }
+
   nav .nav__desktop {
     display: none;
   }
@@ -129,19 +141,6 @@
 
   .overview__content img {
     display: none;
-  }
-
-  #overview h2,
-  #objectives h2 {
-    font-size: 30px;
-    font-weight: 400;
-    margin-top: 0;
-  }
-
-  #overview h2::after,
-  #objectives h2::after {
-    height: 0.65rem;
-    top: calc(50% + 6px);
   }
 
   #objectives h2 {
