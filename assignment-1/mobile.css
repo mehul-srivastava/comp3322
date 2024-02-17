@@ -11,6 +11,7 @@
     font-size: 30px;
     font-weight: 400;
     margin-top: 0;
+    padding-top: 0;
   }
 
   section h2::after,
@@ -162,5 +163,62 @@
 
   .objectives__cards--card div p {
     font-size: 12px;
+  }
+
+  #grading-policy table {
+    min-width: initial;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+      rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  }
+
+  #grading-policy table tbody tr .table__heading {
+    min-width: initial;
+    width: initial;
+  }
+
+  #grading-policy table .table__heading.odd {
+    background-color: #edc4fb33;
+  }
+
+  #grading-policy table .table__heading.even {
+    background-color: #ffdec34d;
+  }
+
+  #grading-policy table tbody tr td {
+    display: table-row;
+  }
+
+  #grading-policy table tbody tr:last-of-type,
+  #grading-policy table tbody tr:first-of-type {
+    border-bottom: none;
+    border-top: none;
+  }
+
+  #grading-policy table tbody tr td h4 {
+    padding: 20px 20px 0;
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  #grading-policy table tbody tr td ul {
+    padding: 20px;
+  }
+
+  #grading-policy table tbody tr td:has(> h4) ul {
+    padding-top: 5px;
+  }
+
+  #grading-policy table tbody tr td ul li {
+    font-size: 13px;
+  }
+
+  #grading-policy table .table__heading h3 {
+    font-size: 17px;
+    padding: 20px;
+    font-weight: 600;
+  }
+
+  #plagiarism {
+    display: none;
   }
 }

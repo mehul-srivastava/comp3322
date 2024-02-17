@@ -368,6 +368,68 @@ section h2::after {
   background-color: #ffd7b94d;
 }
 
+/*======================== Grading Policy Section ==========================*/
+#grading-policy table {
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  width: 100%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+#grading-policy table th,
+#grading-policy table td {
+  padding: 12px 15px;
+}
+
+#grading-policy table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+#grading-policy table tbody tr:nth-of-type(odd) {
+  background-color: #f3f3f3;
+}
+
+#grading-policy table tbody tr .table__heading {
+  min-width: 270px;
+  width: 300px;
+}
+
+#grading-policy table tbody tr td h4 {
+  font-size: 20px;
+}
+
+#grading-policy table tbody tr td ul {
+  margin-left: 15px;
+}
+
+#grading-policy table tbody tr td ul li {
+  font-size: 16px;
+}
+
+#grading-policy table .table__heading.odd {
+  background-color: #f8e3ff33;
+}
+
+#grading-policy table .table__heading.even {
+  background-color: #fff0e44d;
+}
+
+#grading-policy table .table__heading h3 {
+  font-weight: 400;
+  font-size: 22px;
+}
+
+#grading-policy table tbody tr:last-of-type {
+  border-bottom: 3px solid #af10e933;
+}
+
+#grading-policy table tbody tr:first-of-type {
+  border-top: 3px solid #ed74174d;
+}
+
 /*======================== Plagiarism Section ==========================*/
 #plagiarism {
   padding-top: 200px;
