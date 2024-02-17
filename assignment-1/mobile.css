@@ -8,8 +8,8 @@
   }
 
   section h2 {
-    font-size: 30px;
-    font-weight: 400;
+    font-size: 27px;
+    font-weight: 600;
     margin-top: 0;
     padding-top: 0;
   }
@@ -17,7 +17,7 @@
   section h2::after,
   section h2::after {
     height: 0.65rem;
-    top: calc(50% + 6px);
+    top: calc(50% + 4px);
   }
 
   nav .nav__desktop {
@@ -169,6 +169,7 @@
     min-width: initial;
     box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
       rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+    margin-top: 15px;
   }
 
   #grading-policy table tbody tr .table__heading {
@@ -219,6 +220,44 @@
   }
 
   #plagiarism {
+    padding-top: 0px;
+  }
+
+  #readings {
     display: none;
+  }
+
+  .plagiarism_readings__banner {
+    align-items: flex-start;
+    padding: 30px;
+    height: 300px;
+  }
+
+  .plagiarism_readings__banner div img {
+    top: 10px;
+    right: 20px;
+    width: 35px;
+  }
+
+  .plagiarism_readings__banner > img {
+    display: none;
+  }
+
+  .plagiarism_readings__banner div ul {
+    margin-left: 15px;
+  }
+
+  .plagiarism_readings__banner div ul li {
+    font-size: calc(1vw + 10px);
+    margin-bottom: 10px;
+  }
+
+  .plagiarism_readings__banner div h4 {
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+
+  .plagiarism_readings__banner div p {
+    font-size: calc(1vw + 10px);
   }
 }
