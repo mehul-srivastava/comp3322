@@ -64,14 +64,14 @@
         <h5 class="hero__minititle">Programming Project — HTTP Proxy Server</h5>
         <div class="hero__card">
           <div class="banner">
-            <img src="images/undraw_gifts_0ceh.svg" alt="" />
+            <div class="banner__img img-left"></div>
             <div>
               <h3>Total Points</h3>
               <h6>15 Points <small>(Version 1.1)</small></h6>
             </div>
           </div>
           <div class="banner">
-            <img src="images/undraw_time_management_re_tk5w.svg" alt="" />
+            <div class="banner__img img-right"></div>
             <div>
               <h3>Deadline</h3>
               <h6>29 Apr 20xx, 5:00 AM</h6>
@@ -135,6 +135,70 @@
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section id="background">
+        <h2>Background</h2>
+        <p>
+          <span>HTTP</span> is the transfer protocol used throughout the WWW.
+          The HTTP protocol is a request/response protocol. When a client opens
+          a connection, it immediately sends its request for a file. The web
+          server then responds with the file or an error message. Each
+          interaction consists of one request and one reply. Both are MIME-like
+          message (MIME: The Multipurpose Internet Mail Extensions). Each
+          request message includes a request line, a few header lines, a blank
+          line, and the possible message body. Similar is the response message.
+        </p>
+        <br />
+        <p>
+          Each request message includes a request line, a few header lines, a
+          blank line, and the possible message body. Similar is the response
+          message.
+        </p>
+        <br />
+        <i>
+          Request-message = request-line *(message-header CRLF) CRLF [
+          message-body ]
+        </i>
+        <br />
+        <i>
+          Response-message = status-line *(message-header CRLF) CRLF [
+          message-body ]
+        </i>
+        <br />
+        <br />
+        <p>
+          For example, below are the request/response messages sent by a web
+          client (curl) to the server to download a web document:
+        </p>
+        <div class="background__container">
+          <div class="background__container--img">
+            <img src="./images/image2.png" alt="screen" />
+            <span>Figure 2. Sample Web Request/Response messages</span>
+          </div>
+          <h4>Non-Persistent Connection and Persistent Connection</h4>
+          <p>
+            In HTTP 1.0, after the TCP connection was established, a single
+            request was sent over and a single response was sent back. Then the
+            TCP connection was released. Establishing a separate connection for
+            each file request incurs expensive overhead. In view of this
+            deficiency, HTTP 1.1 was designed to support persistent connections.
+            In HTTP 1.1, it is possible to establish a TCP connection, sends a
+            request and gets a response, and then sends additional requests and
+            gets additional responses. Our proxy server should support
+            persistent connections between web clients and itself as well as
+            between itself and target web/proxy servers.
+          </p>
+          <br />
+          <p>
+            If an HTTP 1.1 client sends multiple requests through a single
+            connection, the server should send responses back in the same order
+            as the requests - this is all it takes for a server to support
+            persistent connections. The server should close a connection after
+            the connection has been idle for long enough duration (not defined
+            in the specification; usually set to 10 - 15 seconds).
+          </p>
         </div>
       </section>
 
@@ -274,10 +338,7 @@
       <section id="readings"></section>
       <section id="plagiarism">
         <div class="plagiarism_readings__banner">
-          <img
-            src="images/plagiarism-character.svg"
-            alt="man pointing towards content"
-          />
+          <div class="image"></div>
           <div class="readings-tab">
             <h4>Readings</h4>
             <ul>
@@ -292,7 +353,7 @@
               </li>
             </ul>
             <a href="#plagiarism">
-              <img src="images/switch-on.png" alt="switch to plagiarism tab" />
+              <span></span>
             </a>
           </div>
           <div class="plagiarism-tab">
@@ -305,7 +366,7 @@
               we may make use of software tools to detect software plagiarism.
             </p>
             <a href="#readings">
-              <img src="images/switch-off.png" alt="switch to readings tab" />
+              <span></span>
             </a>
           </div>
         </div>

@@ -104,7 +104,8 @@
     gap: 15px;
   }
 
-  .hero .hero__card .banner img {
+  .hero .hero__card .banner__img.img-left,
+  .hero .hero__card .banner__img.img-right {
     display: none;
   }
 
@@ -233,13 +234,14 @@
     height: 300px;
   }
 
-  .plagiarism_readings__banner div img {
+  .plagiarism_readings__banner div span {
     top: 10px;
     right: 20px;
     width: 35px;
+    height: 35px;
   }
 
-  .plagiarism_readings__banner > img {
+  .plagiarism_readings__banner > div.image {
     display: none;
   }
 

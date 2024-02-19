@@ -46,6 +46,12 @@ section h2::after {
   z-index: -1;
 }
 
+pre {
+  background-color: #e2e2e2;
+  margin: 0;
+  padding: 0;
+}
+
 /*======================== Navbar ==========================*/
 .nav__desktop {
   position: fixed;
@@ -261,13 +267,21 @@ section h2::after {
   height: 100%;
 }
 
-.hero .hero__card .banner img {
+.hero .hero__card .banner__img {
   display: block;
   width: 200px;
-  height: auto;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
 }
 
-.hero .hero__card .banner:last-child img {
+.hero .hero__card .banner__img.img-left {
+  background-image: url("./images/undraw_gifts_0ceh.svg");
+}
+
+.hero .hero__card .banner__img.img-right {
+  background-image: url("./images/undraw_time_management_re_tk5w.svg");
   width: 150px;
 }
 
@@ -366,6 +380,49 @@ section h2::after {
   background-color: #ffd7b94d;
 }
 
+/*======================== Background Section ==========================*/
+#background {
+  display: table;
+}
+
+.background__container {
+  margin-top: 30px;
+}
+
+.background__container h4 {
+  font-size: calc(1vw + 7px);
+  margin-bottom: 10px;
+}
+
+.background__container p {
+  text-align: justify;
+}
+
+.background__container--img {
+  position: relative;
+}
+
+.background__container--img img {
+  float: left;
+  margin: 0 30px 45px 0;
+}
+
+.background__container--img span {
+  position: absolute;
+  letter-spacing: 2px;
+  font-weight: bold;
+  text-transform: uppercase;
+  bottom: -435px;
+  left: 290px;
+  transform: translateX(-50%);
+  background: #c42dfd33;
+  padding: 3px 13px;
+  border-radius: 5px;
+  font-size: 12px;
+  text-align: center;
+  width: max-content;
+}
+
 /*======================== Grading Policy Section ==========================*/
 #grading-policy table {
   border-collapse: collapse;
@@ -447,13 +504,37 @@ section h2::after {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
-.plagiarism_readings__banner > img {
-  height: 550px;
+.plagiarism_readings__banner > div.image {
   flex-shrink: 0;
+  width: 285px;
+  height: 550px;
+  aspect-ratio: 1/1;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  background-image: url("./images/plagiarism-character.svg");
 }
 
-.plagiarism_readings__banner div {
+.plagiarism_readings__banner div span {
   flex: 1;
+  all: initial;
+  position: absolute;
+  top: 20px;
+  right: 50px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+.plagiarism_readings__banner .readings-tab span {
+  background-image: url("./images/switch-on.png");
+}
+
+.plagiarism_readings__banner .plagiarism-tab span {
+  background-image: url("./images/switch-off.png");
 }
 
 .plagiarism_readings__banner div h4 {
@@ -464,16 +545,8 @@ section h2::after {
   font-size: calc(0.5vw + 9px);
 }
 
-.plagiarism_readings__banner div img {
-  all: initial;
-  position: absolute;
-  top: 20px;
-  right: 50px;
-  cursor: pointer;
-}
-
 .plagiarism_readings__banner div ul {
-  margin-left: 40px;
+  margin-left: 30px;
 }
 
 .plagiarism_readings__banner div li {
