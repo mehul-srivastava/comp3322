@@ -8,7 +8,7 @@
   }
 
   section h2 {
-    font-size: 27px;
+    font-size: 32px;
     font-weight: 600;
     margin-top: 0;
     padding-top: 0;
@@ -16,8 +16,8 @@
 
   section h2::after,
   section h2::after {
-    height: 0.65rem;
-    top: calc(50% + 4px);
+    height: 0.75rem;
+    top: calc(50% + 5px);
   }
 
   nav .nav__desktop {
@@ -72,7 +72,7 @@
   }
 
   .hero .hero__title {
-    font-size: 62px;
+    font-size: calc(9vw + 30px);
     text-shadow: -7px 2px #000;
   }
 
@@ -164,6 +164,44 @@
 
   .objectives__cards--card div p {
     font-size: 12px;
+  }
+
+  #background > p,
+  #background > i {
+    font-size: 13px;
+  }
+
+  #background > i {
+    display: inline-block;
+    width: calc(100vw - 50px);
+    white-space: nowrap;
+    overflow-x: scroll;
+  }
+
+  .background__container p {
+    font-size: 13px;
+  }
+
+  .background__container--img span {
+    bottom: 10%;
+    left: 50%;
+    font-size: 10px;
+    width: 100%;
+  }
+
+  .background__container p:first-child {
+    margin-top: 10px;
+  }
+
+  .background__container h4 {
+    font-size: 17px;
+  }
+
+  .background__container--img img {
+    margin: initial;
+    width: 100%;
+    margin-bottom: 65px;
+    float: initial;
   }
 
   #grading-policy table {

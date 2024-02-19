@@ -389,9 +389,13 @@ pre {
   margin-top: 30px;
 }
 
+#background {
+}
+
 .background__container h4 {
   font-size: calc(1vw + 7px);
   margin-bottom: 10px;
+  text-decoration: underline;
 }
 
 .background__container p {
