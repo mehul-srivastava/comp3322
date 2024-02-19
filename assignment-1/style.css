@@ -59,6 +59,7 @@ code {
   position: relative;
   white-space: nowrap;
   overflow-x: scroll;
+  z-index: 10;
 }
 
 code::after {
@@ -551,6 +552,26 @@ code > span.secondary {
   margin-top: 5px;
   font-size: 14px;
   font-weight: 300;
+}
+
+.or-line {
+  position: relative;
+  margin-block: 20px;
+  height: 2px;
+  display: block;
+  width: 100%;
+  background: black;
+}
+
+.or-line::after {
+  content: "OR";
+  position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+  top: -30px;
+  background-color: #fff;
+  z-index: 0;
+  padding: 20px;
 }
 
 /*======================== Submission Section ==========================*/
