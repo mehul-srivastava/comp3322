@@ -83,11 +83,13 @@
       <section id="overview">
         <h2>Overview</h2>
         <div class="overview__image">
-          <img
-            src="images/image1.png"
-            alt="Image describing request and responses between client and target server through a proxy server"
-          />
-          <span>Figure 1. HTTP Proxy Server</span>
+          <figure>
+            <img
+              src="images/image1.png"
+              alt="Image describing request and responses between client and target server through a proxy server"
+            />
+            <figcaption>Figure 1. HTTP Proxy Server</figcaption>
+          </figure>
         </div>
         <div class="overview__content">
           <p>
@@ -150,32 +152,29 @@
           request message includes a request line, a few header lines, a blank
           line, and the possible message body. Similar is the response message.
         </p>
-        <br />
         <p>
           Each request message includes a request line, a few header lines, a
           blank line, and the possible message body. Similar is the response
           message.
         </p>
-        <br />
         <i>
           Request-message = request-line *(message-header CRLF) CRLF [
           message-body ]
         </i>
-        <br />
         <i>
           Response-message = status-line *(message-header CRLF) CRLF [
           message-body ]
         </i>
-        <br />
-        <br />
         <p>
           For example, below are the request/response messages sent by a web
           client (curl) to the server to download a web document:
         </p>
         <div class="background__container">
           <div class="background__container--img">
+            <figure>
             <img src="./images/image2.png" alt="screen" />
-            <span>Figure 2. Sample Web Request/Response messages</span>
+            <figcaption>Figure 2. Sample Web Request/Response messages</figcaption>
+          </figure>
           </div>
           <h4>Non-Persistent Connection and Persistent Connection</h4>
           <p>
@@ -199,6 +198,226 @@
             the connection has been idle for long enough duration (not defined
             in the specification; usually set to 10 - 15 seconds).
           </p>
+        </div>
+      </section>
+
+      <section id="requirements">
+        <h2>Requirements</h2>
+        <p>
+          You are going to write a simple concurrent HTTP proxy server
+          (http_proxy) using C socket, which works as follows:
+        </p>
+        <div class="requirements__cards">
+          <div>
+            <span>1</span>
+            <p>
+              The http_proxy server listens for connection requests from
+              clients.
+            </p>
+          </div>
+          <div>
+            <span>2</span>
+            <p>
+              When there is a new TCP connection request, the http_proxy server
+              creates a new process** to handle the new connection.
+            </p>
+          </div>
+          <div>
+            <span>3</span>
+            <p>
+              The new process sends any HTTP requests to the (origin/proxy)
+              server and reads the server's reply.
+            </p>
+          </div>
+          <div>
+            <span>4</span>
+            <p>Then it sends the responses back to the requesting client.</p>
+          </div>
+        </div>
+        <small>
+          ** Instead of using multiple processes, you can implement a multiple
+          threads proxy server; the http_proxy server creates one new thread to
+          handle each connection.
+        </small>
+
+        <div class="requirements__container">
+          <div>
+            <h5>Relay client requests and server responses</h5>
+            <ol>
+              <li>
+                Directly connect to target web (origin) server:
+                <ul>
+                  <li>
+                    Extract the “Host: ” header line from the client request
+                    message to get the target server name
+                  </li>
+                  <li>Get the response and send back to client</li>
+                  <li>
+                    Connect and send the request to target server on port 80
+                  </li>
+                </ul>
+              </li>
+              <li>
+                When configured to connect to another proxy server
+                <ul>
+                  <li>
+                    Connect and send the request to the specified proxy server
+                    and port
+                  </li>
+                  <li>Get the response and send back to client</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+          <div>
+            <h5>Persistent connections</h5>
+            <p>
+              With persistent connection, the proxy server leaves the connection
+              open for serving more requests after handling a request. The
+              server closes the connection as per the client instructs or if the
+              timeout of idle connection has been reached. In order to let the
+              client knows when is the end of a response message, all response
+              messages on the persistent connection must have a self-defined
+              message length using the Content-Length header field [except for
+              the cases of dynamically generated web contents]. As our proxy
+              server, in principle, is just a relay server, our proxy server
+              does not need to handle that as the Content- Length headers should
+              be generated by the origin servers.
+
+              <br />
+
+              To terminate an idle client connection, the proxy server can
+              simply close the TCP connection and the client browser should
+              detect this situation automatically. Similarly, a client browser
+              can terminate an idle persistent connection by closing the TCP
+              connection; the proxy server should detect this situation and
+              should handle this correctly.
+            </p>
+          </div>
+          <div>
+            <h5>Support request types</h5>
+            <p>
+              For this programming project, HTTP requests generated by all test
+              cases are GET request types. However, of unknown reasons, some
+              browsers may generate POST requests under some situations (e.g.,
+              Chrome browser).
+            </p>
+          </div>
+          <div>
+            <h5>Caching proxy server</h5>
+            <p>
+              You are not required to implement the caching mechanism in this
+              project. That means all requests received from the clients are
+              forwarded to the target origin/proxy server without the needs to
+              search the cache memory as well as manage the cache memory.
+            </p>
+          </div>
+          <div>
+            <h5>How to start the HTTP proxy process</h5>
+            <p>
+              The http_proxy should be invoked as follow:
+              <!-- prettier-ignore -->
+              <code><span class="spacing">./http_proxy</span> myport <span class="secondary">[proxy_server:port]</span></code>
+
+              The 1st parameter - myport is the port number that the http_proxy
+              is listening on. The 2nd parameter - proxy_server:port is an
+              optional argument. When proxy_server:port is specified, all the
+              HTTP requests (responses) should be forwarded to (received from)
+              proxy_server. The port in proxy_server:port is the port number
+              that the proxy_server is listening on.
+            </p>
+          </div>
+          <div>
+            <h5>Output messages</h5>
+            <p>
+              To aid your programming and debugging, please print some log
+              information to the screen. You are required to generate some
+              output with major events:
+            </p>
+            <ul>
+              <li>
+                When receiving a new connection - identify the origin - display
+                some useful information.
+              </li>
+              <li>
+                When establishing a new connection - display the target server
+                information
+              </li>
+              <li>
+                When receiving a new request - display some information, e.g,,
+                the request-line.
+              </li>
+              <li>
+                When receiving a response message - display some information,
+                e.g., message size
+              </li>
+              <li>
+                When detecting the termination of persistent connections or
+                server connection.
+              </li>
+            </ul>
+            <p>Sample runs:</p>
+            <!-- prettier-ignore -->
+            <code>
+              <span class="highlight">atctam@LinuxPC</span><span class="symbol">: ></span> ./http_proxy 54321<br />
+              http_proxy listening on port 54321<br />
+              http_proxy got a NEW connection (1) from 147.8.175.181<br />
+              <span class="highlight">Received Request from user</span><span class="symbol">:</span> 349 bytes<br />
+              Set up a connection to server i.cs.hku.hk<br />
+              <span class="highlight">Requesting server</span><span class="symbol">:</span><br />
+              GET http://i.cs.hku.hk/course/c0324/test/test-1.htm HTTP/1.1 <br />
+              <span class="highlight">Host</span><span class="symbol">:</span> i.cs.hku.hk<br />
+              <span class="highlight">User-Agent</span><span class="symbol">:</span> Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:14.0)<br />
+              Gecko/20100101 Firefox/14.0.1<br />
+              <span class="highlight">Accept</span><span class="symbol">:</span> text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8<br />
+              <span class="highlight">Accept-Language</span><span class="symbol">:</span> en-us,en;q=0.5<br />
+              <span class="highlight">Accept-Encoding</span><span class="symbol">:</span> gzip, deflate<br />
+              <span class="highlight">Proxy-Connection</span><span class="symbol">:</span> keep-alive<br />
+              <span class="spacing">...</span><br /><br/>
+              <span class="highlight">Received Response from Server</span><span class="symbol">:</span> 263 bytes<br />
+              <span class="highlight">Received Response from Server</span><span class="symbol">:</span> 357 bytes<br />
+              <span class="highlight">Received Response from Server</span><span class="symbol">:</span> 0 bytes<br />
+              <span class="highlight">Connection close by server</span><span class="symbol">:</span> i.cs.hku.hk<br /><br/>
+              Timeout - Persistent Connection (1) Closed<br />
+            </code>
+
+            <!-- prettier-ignore -->
+            <code>
+              <span class="highlight">atctam@LinuxPC</span><span class="symbol">: ></span> ./http_proxy 54321 proxy.cs.hku.hk:8282<br/>
+              http_proxy listening on port 54321<br/>
+              http_proxy got a NEW connection (1) from 147.8.175.181<br/>
+              <span class="highlight">Received Request from user</span><span class="symbol">:</span> 349 bytes<br/>
+              Set up a connection to server proxy.cs.hku.hk<br/>
+              <span class="highlight">Requesting server</span><span class="symbol">:</span><br/>
+              GET http://i.cs.hku.hk/course/c0324/test/test-1.htm HTTP/1.1<br/>
+              <span class="highlight">Host</span><span class="symbol">:</span> i.cs.hku.hk<br/>
+              <span class="highlight">User-Agent</span><span class="symbol">:</span> Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:14.0)<br/>
+              Gecko/20100101 Firefox/14.0.1<br/>
+              <span class="highlight">Accept</span><span class="symbol">:</span> text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8<br/>
+              <span class="highlight">Accept-Language</span><span class="symbol">:</span> en-us,en;q=0.5<br/>
+              <span class="highlight">Accept-Encoding</span><span class="symbol">:</span> gzip, deflate<br/>
+              <span class="highlight">Proxy-Connection</span><span class="symbol">:</span> keep-alive<br/>
+              <span class="spacing">...</span><br/><br/>
+
+              <span class="highlight">Received Response from Server</span><span class="symbol">:</span> 761 bytes<br/><br/>
+
+              Timeout - Persistent Connection (1) Closed<br/>
+            </code>
+          </div>
+          <div>
+            <h5>Test cases</h5>
+            <p>
+              We will use (1) Firefox and (2) Chrome to connect to the following
+              web sites for testing of your proxy program.
+            </p>
+            <!-- prettier-ignore -->
+            <code>
+              <span class="spacing">(1)</span> http://i.cs.hku.hk/course/c0324/test/test-1.htm</br >
+              <span class="spacing">(2)</span> http://i.cs.hku.hk/~atctam/view/SimpleWebpage.html</br >
+              <span class="spacing">(3)</span> http://i.cs.hku.hk/course/c0324/test/test-2.htm</br >
+              <span class="spacing">(4)</span> http://www.simpleweb.org/</br >
+            </code>
+          </div>
         </div>
       </section>
 

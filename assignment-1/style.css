@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital@0;1&display=swap");
 
 *,
 ::after,
@@ -46,10 +47,41 @@ section h2::after {
   z-index: -1;
 }
 
-pre {
-  background-color: #e2e2e2;
-  margin: 0;
-  padding: 0;
+code {
+  background-color: #141514;
+  color: #e0e1e1;
+  padding: 20px;
+  padding-top: 40px;
+  display: block;
+  border-radius: 8px;
+  margin-block: 10px;
+  font-family: "Source Code Pro", monospace;
+  position: relative;
+  white-space: nowrap;
+  overflow-x: scroll;
+}
+
+code::after {
+  content: url(./images/code.svg);
+  position: absolute;
+  top: 10px;
+  left: 20px;
+}
+
+code > span.highlight {
+  color: #a47096;
+}
+
+code > span.symbol {
+  color: #535252;
+}
+
+code > span.spacing {
+  color: #c17940;
+}
+
+code > span.secondary {
+  color: #a84043;
 }
 
 /*======================== Navbar ==========================*/
@@ -313,13 +345,15 @@ pre {
   margin-top: 15px;
 }
 
-.overview__image span {
+.overview__image figcaption {
   position: absolute;
   letter-spacing: 2px;
   font-weight: bold;
   text-transform: uppercase;
-  bottom: 20px;
+  bottom: 6px;
   left: 25%;
+  text-align: center;
+  width: fit-content;
   transform: translateX(-50%);
   background: #f9f3fb;
   padding: 3px 13px;
@@ -384,6 +418,22 @@ pre {
   display: table;
 }
 
+#background > p {
+  margin-bottom: 15px;
+}
+
+#background > p:last-of-type {
+  margin-bottom: 10px;
+}
+
+#background > i {
+  display: block;
+}
+
+#background > i:last-of-type {
+  margin-bottom: 30px;
+}
+
 .background__container {
   margin-top: 30px;
 }
@@ -407,7 +457,7 @@ pre {
   margin: 0 30px 45px 0;
 }
 
-.background__container--img span {
+.background__container--img figcaption {
   position: absolute;
   letter-spacing: 2px;
   font-weight: bold;
@@ -421,6 +471,86 @@ pre {
   font-size: 12px;
   text-align: center;
   width: max-content;
+}
+
+/*======================== Requirements Section ==========================*/
+#requirements h2 {
+  margin-bottom: 15px;
+}
+
+#requirements small {
+  display: inline-block;
+  background-color: #e2e2e2;
+  margin-top: 20px;
+}
+
+.requirements__cards {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.requirements__cards > div {
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  position: relative;
+}
+
+.requirements__cards > div span {
+  position: absolute;
+  font-size: 48px;
+  color: #ddd;
+  font-weight: 600;
+  top: 0;
+  z-index: -1;
+}
+
+.requirements__cards > div p {
+  margin-top: 50px;
+  font-size: 12px;
+}
+
+.requirements__cards > div span::before {
+  content: "#";
+}
+
+.requirements__container {
+  margin-top: 40px;
+}
+
+.requirements__container > div {
+  margin-top: 40px;
+}
+
+.requirements__container > div h5 {
+  font-size: 22px;
+}
+
+.requirements__container > div p {
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+.requirements__container > div ol {
+  margin-left: 30px;
+}
+
+.requirements__container > div ol > li {
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.requirements__container > div ul {
+  margin-left: 25px;
+  list-style: disc;
+}
+
+.requirements__container > div ul > li {
+  margin-top: 5px;
+  font-size: 14px;
+  font-weight: 300;
 }
 
 /*======================== Submission Section ==========================*/
@@ -454,11 +584,7 @@ pre {
   background-color: #fff;
   padding: 30px;
   border: 2px dashed;
-  height: 100%;
-}
-
-.submission__banner--cards .card:first-child {
-  width: 30%;
+  width: 50%;
 }
 
 .submission__banner--cards .card h4 {

@@ -28,6 +28,10 @@
     display: flex;
   }
 
+  .nav__mobile-menu li {
+    font-size: 16px;
+  }
+
   #nav:target {
     transform: translate(5.5%, -50%);
   }
@@ -126,11 +130,9 @@
     width: 100%;
   }
 
-  .overview__image span {
-    width: calc(100% - 5px);
+  .overview__image figcaption {
+    width: 100%;
     left: 50%;
-    bottom: 10px;
-    text-align: center;
   }
 
   .overview__content {
@@ -202,6 +204,12 @@
     width: 100%;
     margin-bottom: 65px;
     float: initial;
+  }
+
+  .background__container--img figcaption {
+    bottom: 20px;
+    left: 50%;
+    width: 100%;
   }
 
   #grading-policy table {
@@ -302,11 +310,19 @@
   }
 
   #submission {
-    padding-top: 60px;
+    padding-top: 30px;
   }
 
   .submission__banner {
-    padding: 30px;
+    padding: 20px;
+  }
+
+  .submission__banner h3 {
+    font-size: 29px;
+  }
+
+  .submission__banner p {
+    font-size: 12px;
   }
 
   .submission__banner--cards {
@@ -318,7 +334,56 @@
     padding: 20px;
   }
 
-  .submission__banner--cards .card:first-child {
+  .submission__banner--cards .card {
     width: 100%;
+  }
+
+  .submission__banner--cards .card h4 {
+    font-size: 14px;
+  }
+
+  .submission__banner--cards .card ol {
+    font-size: 13px;
+  }
+
+  .submission__banner--cards .card ol > li {
+    margin-top: 10px;
+  }
+
+  .submission__banner--cards .card ul {
+    margin-left: 20px;
+  }
+
+  .submission__banner--cards .card ul > li {
+    font-weight: 300;
+    margin-top: 5px;
+  }
+
+  .submission__banner--cards .card li {
+    font-size: 12px;
+  }
+
+  #requirements > p {
+    font-size: 13px;
+  }
+
+  .requirements__cards {
+    flex-direction: column;
+  }
+
+  .requirements__cards > div span {
+    font-size: 30px;
+  }
+
+  .requirements__cards > div p {
+    margin-top: 30px;
+  }
+
+  .requirements__container > div ol {
+    margin-left: 20px;
+  }
+
+  .requirements__container > div ul {
+    margin-left: 15px;
   }
 }
