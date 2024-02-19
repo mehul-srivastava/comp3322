@@ -300,4 +300,25 @@
   .plagiarism_readings__banner div p {
     font-size: calc(1vw + 10px);
   }
+
+  #submission {
+    padding-top: 60px;
+  }
+
+  .submission__banner {
+    padding: 30px;
+  }
+
+  .submission__banner--cards {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .submission__banner--cards .card {
+    padding: 20px;
+  }
+
+  .submission__banner--cards .card:first-child {
+    width: 100%;
+  }
 }
