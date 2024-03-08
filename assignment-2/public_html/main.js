@@ -60,9 +60,13 @@ function paintDom(data, containerId, isArrival) {
               <p>
                 ${value !== 0 ? key : "&nbsp;"}
                 <span class="tooltip" style="--width: ${value}px">
-                  <em class="tooltiptext">${value} ${numFlights} ${message} ${
+                  <em class="tooltiptext ${
+                    isArrival ? "tooltiptext-left" : ""
+                  }">
+                  ${value} ${numFlights} ${message} ${
               key === "pr" ? "the previous day" : "the next day"
-            }</em>
+            }
+                  </em>
                 </span>
                 <span>${value === 0 ? "" : value}</span>
               </p>
@@ -73,7 +77,9 @@ function paintDom(data, containerId, isArrival) {
             <p>
               ${key}
               <span class="tooltip" style="--width: ${value}px">
-                <em class="tooltiptext">${value} ${numFlights} ${message} at ${key}:00</em>
+                <em class="tooltiptext ${
+                  isArrival ? "tooltiptext-left" : ""
+                }">${value} ${numFlights} ${message} at ${key}:00</em>
               </span>
               <span>${value === 0 ? "" : value}</span>
             </p>
@@ -82,27 +88,29 @@ function paintDom(data, containerId, isArrival) {
         .join("")}
     </div>
     <h3 class="title">Top 10 ${isArrival ? "Origins" : "Destinations"}</h3>
-    <table class="top10">
-      <tfoot>
-        <th>Code</th>
-        <th>Airport</th>
-        <th>Frequency</th>
-      </tfoot>
-      <tbody>
-        ${stat_top_10_list
-          .map((item) => {
-            const [name, code, frequency] = item;
-            return `
-            <tr>
-              <td>${code}</td>
-              <td>${name}</td>
-              <td>${frequency}</td>
-            </tr>
-          `;
-          })
-          .join("")}
-      </tbody>
-    </table>
+    <div class="scrollable">
+      <table class="top10">
+        <tfoot>
+          <th>Code</th>
+          <th>Airport</th>
+          <th>Frequency</th>
+        </tfoot>
+        <tbody>
+          ${stat_top_10_list
+            .map((item) => {
+              const [name, code, frequency] = item;
+              return `
+              <tr>
+                <td>${code}</td>
+                <td>${name}</td>
+                <td>${frequency}</td>
+              </tr>
+            `;
+            })
+            .join("")}
+        </tbody>
+      </table>
+    </div>
   `;
 }
 
@@ -316,7 +324,6 @@ function handleForm(e) {
 const dateInput = document.getElementById("js-date");
 dateInput.setAttribute("min", getDaysBeforeToday(91));
 dateInput.setAttribute("max", getDaysBeforeToday(1));
-
 dateInput.addEventListener("click", () => {
   document.getElementById("js-flight-date").innerHTML = "";
   document.getElementById("js-departure-statistics").innerHTML = "";
