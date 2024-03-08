@@ -1,0 +1,39 @@
+version: '3'
+
+services:
+  mydb:
+    container_name: c3322-db
+    image: mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: db3322
+      MYSQL_USER: dummy
+      MYSQL_PASSWORD: c3322b
+      MYSQL_ROOT_PASSWORD: root3322
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+  dbadmin:
+    container_name: c3322-dbadmin
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    depends_on:
+      mydb:
+        condition: service_started
+    ports:
+      - 9000:80
+    environment:
+      PMA_HOST: mydb
+      PMA_PORT: 3306
+  www:
+    build: ./php-apache/
+    container_name: c3322-WWW
+    restart: always
+    depends_on:
+      mydb:
+        condition: service_started
+    ports: 
+      - "9080:80"
+    volumes:
+      - ./public_html:/var/www/html/
