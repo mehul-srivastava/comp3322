@@ -59,7 +59,7 @@ function paintDom(data, containerId, isArrival) {
             return `
               <p>
                 ${value !== 0 ? key : "&nbsp;"}
-                <span class="tooltip" style="--width: ${value}px">
+                <span class="tooltip" style="--width: ${value}">
                   <em class="tooltiptext ${
                     isArrival ? "tooltiptext-left" : ""
                   }">
@@ -76,7 +76,7 @@ function paintDom(data, containerId, isArrival) {
           return `
             <p>
               ${key}
-              <span class="tooltip" style="--width: ${value}px">
+              <span class="tooltip" style="--width: ${value}">
                 <em class="tooltiptext ${
                   isArrival ? "tooltiptext-left" : ""
                 }">${value} ${numFlights} ${message} at ${key}:xx</em>
@@ -112,6 +112,20 @@ function paintDom(data, containerId, isArrival) {
       </table>
     </div>
   `;
+}
+
+function displayError(message, isVisible = true) {
+  const toastNotification = document.getElementById("toast");
+  const toastMessage = document.querySelector("#toast p");
+
+  if (isVisible) {
+    toastNotification.classList.add("show");
+    toastMessage.innerHTML = message;
+    return;
+  }
+
+  toastNotification.classList.remove("show");
+  toastMessage.innerHTML = "";
 }
 
 async function getFlightData(date, isArrival) {
@@ -295,27 +309,25 @@ function handleForm(e) {
 
   /* Validation 1: check if date field has any value */
   if (!selectedDate) {
-    dateInput.setCustomValidity("Please enter a day for the search");
-    dateInput.reportValidity();
+    displayError("Please enter a day for the search");
     return;
   }
 
   /* Validation 2: check if selected date is after today */
   let maxDate = dateInput.getAttribute("max");
   if (String(selectedDate) > maxDate) {
-    dateInput.setCustomValidity("Select any date before today");
-    dateInput.reportValidity();
+    displayError("Select any date before today");
     return;
   }
 
   /* Validation 2: check if selected date is before minimum possible date */
   let minDate = dateInput.getAttribute("min");
   if (String(selectedDate) < minDate) {
-    dateInput.setCustomValidity(`Select any date after ${minDate}`);
-    dateInput.reportValidity();
+    displayError(`Select any date after ${getDaysBeforeToday(92)}`);
     return;
   }
 
+  displayError("", false);
   displayResult(selectedDate);
   dateInput.value = null;
   return;

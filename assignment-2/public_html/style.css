@@ -59,12 +59,12 @@ section {
   flex-direction: column;
   justify-content: center;
   padding: 30px;
+  margin: 20px;
   height: 400px;
   position: relative;
   border-radius: 10px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(7px);
-  -webkit-backdrop-filter: blur(7px);
   border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
@@ -171,6 +171,35 @@ section {
   width: 100%;
   background-color: #000;
   color: #e2e2e2;
+  position: relative;
+  z-index: 10;
+}
+
+.search-container form > div {
+  position: relative;
+}
+
+#toast {
+  display: none;
+  align-items: center;
+  position: absolute;
+  right: 0;
+  top: -10px;
+  background-color: #fff;
+  border-radius: 5px;
+  width: fit-content;
+  border-left: 4px solid red;
+}
+
+#toast p {
+  color: #000;
+  padding-block: 5px;
+  padding-inline: 10px;
+  font-size: 11px;
+}
+
+#toast.show {
+  display: flex;
 }
 
 .search-container form input::-webkit-calendar-picker-indicator {
@@ -186,6 +215,7 @@ section {
   border-radius: 10px;
   background-color: #262727;
   padding: 30px;
+  margin: 20px;
   margin-top: 40px;
 }
 
@@ -296,6 +326,7 @@ small {
   .search-container {
     margin: 20px;
     padding: 25px;
+    height: 350px;
   }
 
   .search-container h1 {
@@ -320,7 +351,7 @@ small {
   }
 
   .search-container form div label {
-    font-size: 10px;
+    font-size: 9px;
     margin-bottom: 11px;
   }
 
@@ -339,7 +370,7 @@ small {
   }
 
   .result-container .flex div p span:first-child {
-    width: calc(var(--width) * 7);
+    width: calc(var(--width) * calc(3.65vw + -7.5px));
   }
 
   .result-container .flex > div .title {
@@ -362,5 +393,16 @@ small {
   .result-container .flex .top10 {
     width: 100%;
     white-space: nowrap;
+  }
+
+  #toast {
+    top: max(calc(-0.5vw - 5px), -5px);
+    border-left: 3px solid red;
+  }
+
+  #toast p {
+    font-size: min(calc(4vw - 6px), 11px);
+    padding-inline: 5px;
+    padding-block: 4px;
   }
 }
