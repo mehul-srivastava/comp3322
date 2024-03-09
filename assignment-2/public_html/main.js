@@ -79,7 +79,7 @@ function paintDom(data, containerId, isArrival) {
               <span class="tooltip" style="--width: ${value}px">
                 <em class="tooltiptext ${
                   isArrival ? "tooltiptext-left" : ""
-                }">${value} ${numFlights} ${message} at ${key}:00</em>
+                }">${value} ${numFlights} ${message} at ${key}:xx</em>
               </span>
               <span>${value === 0 ? "" : value}</span>
             </p>

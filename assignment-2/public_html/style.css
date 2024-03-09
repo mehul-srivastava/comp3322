@@ -1,0 +1,366 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  background-color: #000000;
+}
+
+.hidden {
+  display: none !important;
+}
+
+section {
+  margin-block: 40px;
+  width: 1200px;
+  height: 100%;
+}
+
+.tooltip {
+  position: relative;
+  cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: max-content;
+  background-color: black;
+  color: #fff;
+  font-size: 13px;
+  text-align: center;
+  padding: 5px;
+  border-radius: 6px;
+  position: absolute;
+  top: -40px;
+  right: -200px;
+  z-index: 1;
+}
+
+.tooltiptext-left {
+  right: -100px !important;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+/* ====================== Search Container ====================== */
+.search-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px;
+  height: 400px;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.search-container::before,
+.search-container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-conic-gradient(
+    from var(--a),
+    #ffcc70,
+    #4158d0,
+    #c850c0,
+    #4158d0,
+    #c850c0,
+    #ffcc70
+  );
+  border-radius: inherit;
+  animation: rotating 6s linear infinite;
+}
+
+@property --a {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@keyframes rotating {
+  0% {
+    --a: 0deg;
+  }
+
+  100% {
+    --a: 360deg;
+  }
+}
+
+.search-container::after {
+  filter: blur(40px);
+  opacity: 0.75;
+}
+
+.search-container .overlay {
+  position: absolute;
+  inset: 4px;
+  background: #262727;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+.search-container h1,
+.search-container h3 {
+  text-align: center;
+  z-index: 5;
+}
+
+.search-container h1 {
+  font-size: 70px;
+  color: #ebebeb;
+}
+
+.search-container h3 {
+  font-size: 41px;
+  color: #979494;
+}
+
+.search-container form {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  margin-top: 40px;
+  padding: 20px;
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+  z-index: 5;
+}
+
+.search-container form div {
+  width: 100%;
+}
+
+.search-container form div label {
+  display: block;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 12px;
+  margin-left: 3px;
+  color: #ddd;
+}
+
+.search-container form input,
+.search-container form button {
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.search-container form input {
+  width: 100%;
+  background-color: #000;
+  color: #e2e2e2;
+}
+
+.search-container form input::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+.search-container form button {
+  cursor: pointer;
+}
+
+/* ====================== Result Container ====================== */
+.result-container {
+  border-radius: 10px;
+  background-color: #262727;
+  padding: 30px;
+  margin-top: 40px;
+}
+
+.result-container h2 {
+  color: #fff;
+  font-size: 38px;
+}
+
+.result-container .flex {
+  display: flex;
+  gap: 50px;
+}
+
+.result-container .flex > div {
+  width: 100%;
+}
+
+.result-container .flex > div .title {
+  font-size: 23px;
+  margin-top: 50px;
+  font-weight: 700;
+  color: #dadada;
+}
+
+.result-container .flex div table {
+  color: #979494;
+}
+
+.result-container .flex div table thead {
+  color: #cdcdcd;
+  font-weight: 900;
+  font-size: 13px;
+  text-transform: uppercase;
+}
+
+.result-container .flex div table tr td:last-child {
+  padding: 5px 20px;
+  font-size: 14px;
+}
+
+.result-container .flex div p {
+  text-align: justify;
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  font-family: "Courier New", Courier, monospace;
+  color: #fff;
+}
+
+.result-container .flex div p span:first-child {
+  background: #fff;
+  height: 10px;
+  width: calc(var(--width) * 12.5);
+  margin-left: 5px;
+  border-radius: 5px;
+  font-family: inherit;
+}
+
+.result-container .flex div p span:last-child {
+  margin-left: 5px;
+  font-size: 12px;
+  font-weight: 400;
+  font-family: inherit;
+}
+
+strong {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.result-container .flex .top10 {
+  margin-top: 10px;
+  width: 95%;
+  border-collapse: collapse;
+}
+
+.result-container .flex .top10 td,
+.result-container .flex .top10 th {
+  text-align: center;
+  padding: 12px 15px;
+}
+
+.result-container .flex .top10 th {
+  text-transform: uppercase;
+}
+
+.result-container .flex .top10 td {
+  font-size: 14px;
+}
+
+.result-container .flex .top10 tfoot {
+  background-color: #fff;
+  color: #000;
+}
+
+.result-container .flex .top10 tbody tr:nth-child(odd) {
+  background-color: #000;
+}
+
+small {
+  display: block;
+  margin-top: 20px;
+  color: rgb(147, 5, 5);
+}
+
+/* ====================== Media Queries ====================== */
+@media (350px <= width <= 500px) {
+  .search-container {
+    margin: 20px;
+    padding: 25px;
+  }
+
+  .search-container h1 {
+    font-size: calc(5vw + 3px);
+  }
+
+  .search-container h3 {
+    font-size: calc(4.4vw + 1px);
+  }
+
+  .search-container form {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .search-container form button {
+    width: 100%;
+  }
+
+  .search-container form input {
+    border: thin solid #363636;
+  }
+
+  .search-container form div label {
+    font-size: 10px;
+    margin-bottom: 11px;
+  }
+
+  .result-container {
+    margin: 20px;
+    padding: 25px;
+    margin-top: 60px;
+  }
+
+  .result-container h2 {
+    font-size: 24px;
+  }
+
+  .result-container .flex {
+    flex-direction: column;
+  }
+
+  .result-container .flex div p span:first-child {
+    width: calc(var(--width) * 7);
+  }
+
+  .result-container .flex > div .title {
+    margin-top: 30px;
+  }
+
+  .tooltiptext {
+    display: none !important;
+  }
+
+  small {
+    display: none;
+  }
+
+  .scrollable {
+    overflow-x: auto;
+    width: calc(100vw - 90px);
+  }
+
+  .result-container .flex .top10 {
+    width: 100%;
+    white-space: nowrap;
+  }
+}
