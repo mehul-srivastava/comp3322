@@ -268,7 +268,7 @@ section {
 .result-container .flex div p span:first-child {
   background: #fff;
   height: 10px;
-  width: calc(var(--width) * 12.5);
+  width: calc(var(--width) * 12.5px);
   margin-left: 5px;
   border-radius: 5px;
   font-family: inherit;
